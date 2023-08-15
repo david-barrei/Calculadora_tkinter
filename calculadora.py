@@ -1,4 +1,5 @@
 from tkinter import Tk,Text, Button, END,re
+import os.path
 
 class Interfaz:
 
@@ -6,6 +7,14 @@ class Interfaz:
         #Iniciar la ventana 
         self.ventana= ventana
         self.ventana.title("Calculadora")
+        
+        ruta_icono = os.path.abspath("./imagenes\sistema.ico")
+        if os.path.isfile(ruta_icono):
+            ruta_icono = os.path.abspath("./imagenes\sistema.ico")
+        else:
+            print("El archivo no se encuentra en la ruta especificada.")
+        #icono de la ventana
+        ventana.iconbitmap(ruta_icono)
 
         #Agregar una caja de texto para que sea la pantalla
         self.pantalla= Text (ventana,state="disable", width=40, height=3, background="gold", foreground="white", font=("Helvetica",15))
